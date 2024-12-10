@@ -2,7 +2,7 @@ import { HttpInterceptorFn } from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {inject} from '@angular/core';
 import {catchError, throwError} from 'rxjs';
-import {AuthService} from '../auth/auth.service';
+//import {AuthService} from '../auth/auth.service';
 
 export const backendInterceptor: HttpInterceptorFn = (req, next) => {
   if (req.url.startsWith("/")) {
@@ -14,6 +14,7 @@ export const backendInterceptor: HttpInterceptorFn = (req, next) => {
   }
   return next(req);
 };
+/*
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const token = inject(AuthService).token;
@@ -40,3 +41,4 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   }
   return next(req)
 }
+*/
