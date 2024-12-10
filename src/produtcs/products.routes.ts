@@ -14,7 +14,10 @@ export const routes: Routes = [
     path: ":id",
     loadComponent: () => import('./views/editor/editor.component').then(m => m.EditorComponent),
     resolve: {
-      products: (route: ActivatedRouteSnapshot) => inject(HttpClient).get("/products/"+route.paramMap.get("id"))
+      products: (route: ActivatedRouteSnapshot) => {
+        const id = Number(route.paramMap.get("id"))
+        return id ? inject(HttpClient).get("/products/" + id) : undefined
+      }
     }
   }
 ]
