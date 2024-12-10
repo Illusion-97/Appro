@@ -22,6 +22,10 @@ export class EditorComponent extends AbstractFormComponent{
     price: new FormControl(0, {validators: Validators.required})
   })
 
+  get isUpdate() {
+    return !!this.form.value.id
+  }
+
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {
     super();
     route.data.pipe(takeUntilDestroyed()).subscribe(({product}) => {
@@ -31,6 +35,8 @@ export class EditorComponent extends AbstractFormComponent{
   }
 
   onSubmit$(): void {
+    this.http[this.isUpdate ? 'put' : 'post']("/products" + (this.isUpdate ? '/'+ this.form.value.id : ''),this.form.value)
+      .subscribe(() => this.router.navigate(['..'], {relativeTo: this.route}))
   }
 
 
