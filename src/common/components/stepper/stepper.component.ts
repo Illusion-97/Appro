@@ -1,5 +1,13 @@
-import {AfterContentChecked, AfterContentInit, Component, ContentChildren, OnInit, QueryList} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  ChangeDetectorRef,
+  Component,
+  ContentChildren,
+  OnInit,
+  QueryList
+} from '@angular/core';
+import {BehaviorSubject, interval} from 'rxjs';
 import {StepComponent} from './step/step.component';
 
 @Component({
@@ -16,12 +24,27 @@ export class StepperComponent implements AfterContentChecked {
   @ContentChildren(StepComponent)
   steps!: QueryList<StepComponent>
 
+  constructor() {
+    interval(2000).subscribe(() => {
+      this.next()
+    })
+  }
+
   ngAfterContentChecked(): void {
     this.steps.forEach((step, index) => {
       step.index = index
       // Utile uniquement en DEV
       step.changeRef.detectChanges()
     })
+
+  }
+
+  prev() {
+    this.currentIndex.next( this.currentIndex.value ? this.currentIndex.value - 1 : this.steps.length - 1)
+  }
+
+  next() {
+    this.currentIndex.next(this.currentIndex.value + 1 === this.steps.length ? 0 : this.currentIndex.value + 1)
   }
 
 }
