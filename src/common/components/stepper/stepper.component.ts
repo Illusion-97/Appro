@@ -19,6 +19,8 @@ export class StepperComponent implements AfterContentInit {
   ngAfterContentInit(): void {
     this.steps.forEach((step, index) => {
       step.index = index
+      // Utile uniquement en DEV
+      step.changeRef.detectChanges()
     })
   }
 
