@@ -1,9 +1,9 @@
 <div class="h-full w-full flex gap-10 flex-wrap justify-center items-center">
   <app-stepper>
-    @for (product of [1,2,3,4,5,6]; track $index) {
+    @for (product of products | async; track $index) {
       <app-step>
         <div class="h-full w-full flex justify-center items-center">
-          <app-details/>
+          <app-details [product]="product"/>
         </div>
       </app-step>
     }

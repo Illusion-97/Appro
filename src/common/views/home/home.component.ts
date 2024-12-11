@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
-import {DetailsComponent} from '../../../produtcs/components/details/details.component';
+import {Component, inject} from '@angular/core';
+import {DetailsComponent, Product} from '../../../produtcs/components/details/details.component';
 import {StepperComponent} from '../../components/stepper/stepper.component';
 import {StepComponent} from '../../components/stepper/step/step.component';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs';
+import {AsyncPipe} from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +13,12 @@ import {StepComponent} from '../../components/stepper/step/step.component';
   imports: [
     DetailsComponent,
     StepperComponent,
-    StepComponent
+    StepComponent,
+    AsyncPipe
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  products = inject(ActivatedRoute).data.pipe(map(({products}) => products))
 }
