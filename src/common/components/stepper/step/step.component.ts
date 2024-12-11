@@ -1,4 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, Host, inject, Inject, Input, OnInit} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {StepperComponent} from '../stepper.component';
 
 @Component({
   selector: 'app-step',
@@ -8,8 +10,10 @@ import {Component, Input} from '@angular/core';
   styleUrl: './step.component.css'
 })
 export class StepComponent {
-  @Input() index: number = 1
+  index: number = 1
+  private readonly currentIndex: BehaviorSubject<number> = inject(StepperComponent).currentIndex
+
   get left() {
-    return this.index * 100
+    return (this.index - this.currentIndex.value) * 100
   }
 }
