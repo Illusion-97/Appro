@@ -1,7 +1,7 @@
-import { HttpInterceptorFn } from '@angular/common/http';
+import {HttpInterceptorFn} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {inject} from '@angular/core';
-import {catchError, finalize, throwError} from 'rxjs';
+import {finalize} from 'rxjs';
 import {NavigationService} from '../common/services/navigation.service';
 //import {AuthService} from '../auth/auth.service';
 

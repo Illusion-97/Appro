@@ -17,7 +17,7 @@ export class DetailsComponent {
   get stars() {
     return new Array(5)
       .fill(0)
-      .map((v, i) => (i + 1) <= this.product.rating );
+      .map((v, i) => (i + 1) <= this.product.rating);
   }
 }
 

@@ -17,7 +17,7 @@ import {NavigationService} from '../../../common/services/navigation.service';
   styleUrl: './waiter.component.css'
 })
 export class WaiterComponent {
-  navigating : boolean = false
+  navigating: boolean = false
   service: NavigationService = inject(NavigationService)
 
   constructor(router: Router) {

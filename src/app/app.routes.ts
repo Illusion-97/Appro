@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {inject} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 

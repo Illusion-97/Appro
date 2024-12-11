@@ -1,11 +1,9 @@
 import {Component, inject} from '@angular/core';
-import {DetailsComponent, Product} from '../../../produtcs/components/details/details.component';
-import {StepperComponent} from '../../components/stepper/stepper.component';
-import {StepComponent} from '../../components/stepper/step/step.component';
-import {HttpClient} from '@angular/common/http';
+import {DetailsComponent} from '../../../produtcs/components/details/details.component';
 import {map} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
+import {NextStepDirective, StepComponent, StepperComponent} from 'tw-stepper';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +12,8 @@ import {ActivatedRoute} from '@angular/router';
     DetailsComponent,
     StepperComponent,
     StepComponent,
-    AsyncPipe
+    AsyncPipe,
+    NextStepDirective
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

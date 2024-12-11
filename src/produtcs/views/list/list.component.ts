@@ -20,6 +20,6 @@ export class ListComponent {
   private http: HttpClient = inject(HttpClient)
 
   delete(id: any) {
-    this.produits = this.http.delete("/products/"+id).pipe(switchMap(() => this.http.get("/products")))
+    this.produits = this.http.delete("/products/" + id).pipe(switchMap(() => this.http.get("/products")))
   }
 }

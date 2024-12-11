@@ -1,22 +1,30 @@
 <section class="bg-white dark:bg-gray-900 h-full flex flex-col justify-center">
   <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-    <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">{{ isUpdate ? 'Edit a' : 'Add a new' }} product</h2>
+    <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">{{ isUpdate ? 'Edit a' : 'Add a new' }}
+      product</h2>
     <form (submit)="onSubmit()" [formGroup]="form">
       <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <div class="sm:col-span-2">
-          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
-          <input formControlName="name" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Type product name" required="">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="name">Product Name</label>
+          <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="name" id="name" name="name"
+                 placeholder="Type product name"
+                 required="" type="text">
         </div>
         <div class="w-full">
-          <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
-          <input formControlName="src" type="text" name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Product brand" required="">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="brand">Image</label>
+          <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="src" id="brand" name="brand"
+                 placeholder="Product brand"
+                 required="" type="text">
         </div>
         <div class="w-full">
-          <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-          <input formControlName="price" type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="$2999" required="">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="price">Price</label>
+          <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="price" id="price" name="price"
+                 placeholder="$2999"
+                 required="" type="number">
         </div>
       </div>
-      <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+      <button class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+              type="submit">
         {{ isUpdate ? 'Edit' : 'Add' }} product
       </button>
     </form>
